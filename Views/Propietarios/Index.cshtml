@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ProyectoInmobiliaria.Models.Propietario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Todos los Propietarios</h2>
+
+<p>
+    <a asp-action="Create">Agregar Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               <label>ID Propietario</label>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdProp }) |
+                @if (User.IsInRole("Administrador")) {
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProp })
+                                                                                     }
+                    @Html.ActionLink("Ver Propiedades", "InmPorProp", "Inmuebles", new { id = item.IdProp })
+                </td>
+    
+            </tr>
+
+}
+    </tbody>
+</table>
