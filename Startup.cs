@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -114,7 +114,11 @@ namespace ProyectoInmobiliaria
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+          
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy(new CookiePolicyOptions

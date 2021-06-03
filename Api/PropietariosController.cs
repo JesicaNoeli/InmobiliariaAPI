@@ -18,7 +18,7 @@ namespace ProyectoInmobiliaria.Api
 {
    [Route("api/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    //[ApiController]
+    [ApiController]
     public class PropietariosController : Controller
     {
         private readonly DataContext contexto;
@@ -52,7 +52,7 @@ namespace ProyectoInmobiliaria.Api
         // GET api/<controller>/5
         [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginView loginView)
+        public async Task<IActionResult> Login([FromForm]LoginView loginView)
         {
             Propietario p = contexto.Propietarios.FirstOrDefault(x => x.Email == loginView.Email);
             if(p != null) { 
@@ -123,7 +123,7 @@ namespace ProyectoInmobiliaria.Api
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put( [FromForm] Propietario entidad)
+        public async Task<IActionResult> Put([FromBody]Propietario entidad)
         {
            
             var usuario = User.Identity.Name;

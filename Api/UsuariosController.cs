@@ -46,11 +46,9 @@ namespace ProyectoInmobiliaria.Api
         }
        
 
-        [HttpPut/*("{id}")*/]
-        public async Task<IActionResult> Put(/*int id,*/ [FromForm] Usuario entidad)
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] Usuario entidad)
         {
-            //var us = contexto.Usuarios.AsNoTracking().FirstOrDefault(e => e.IdUs == id);
-
             var usuario = User.Identity.Name;
             var res = contexto.Usuarios.AsNoTracking().FirstOrDefault(x => x.Email == usuario);
 

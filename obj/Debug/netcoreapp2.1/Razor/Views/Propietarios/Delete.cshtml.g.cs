@@ -181,12 +181,12 @@ using ProyectoInmobiliaria.Models;
             WriteLiteral("\n        </dd>\n        \n    </dl>\n    \n    ");
             EndContext();
             BeginContext(1237, 158, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "868a6cb9e5cd4c8984e03a55824366f7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb6cf4b31cd9448e991193af1e2309c5", async() => {
                 BeginContext(1263, 82, true);
                 WriteLiteral("\n        <input type=\"submit\" value=\"Borrar\" class=\"btn btn-default\" /> |\n        ");
                 EndContext();
                 BeginContext(1345, 38, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "677802792bd840acaab9fa7052630e90", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7c3baef14540461b8c55a9af79d2d1a1", async() => {
                     BeginContext(1367, 12, true);
                     WriteLiteral("Back to List");
                     EndContext();

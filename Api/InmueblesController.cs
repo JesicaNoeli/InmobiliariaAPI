@@ -89,7 +89,7 @@ namespace ProyectoInmobiliaria.Api
 
         // PUT: api/Inmuebles/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromForm]Inmueble inmueble)
+        public async Task<IActionResult> Put(int id, [FromBody]Inmueble inmueble)
         {
             var inm = contexto.Inmuebles.AsNoTracking().Include(e => e.Propietario).FirstOrDefault(e => e.IdInm == id && e.Propietario.Email == User.Identity.Name);
 
