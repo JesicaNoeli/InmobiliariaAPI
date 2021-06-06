@@ -65,7 +65,7 @@ namespace ProyectoInmobiliaria.Api
                     iterationCount: 1000,
                     numBytesRequested: 256 / 8));
                 var us = contexto.Usuarios.FirstOrDefault(x => x.Email == loginView.Email);
-                if (us == null || us.Clave != hashed)
+                 if (us == null || us.Clave != hashed)
                 {
                     return BadRequest("Nombre de usuario o clave incorrecta");
                 }

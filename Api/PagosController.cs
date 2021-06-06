@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +30,26 @@ namespace ProyectoInmobiliaria.Api
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pago>>> GetPago()
         {
-            return await contexto.Pagos.ToListAsync();
+            try
+            {
+                var pago = await contexto.Pagos
+                .Include(pagos => pagos.Contrato)
+                .Include(pagos => pagos.Contrato.Inmueble)
+                .Include(pagos => pagos.Contrato.Inmueble.Propietario)
+                .Include(pagos => pagos.Contrato.Inquilino)
+                .Where(pagos =>  pagos.Contrato.Inmueble.Propietario.Email == User.Identity.Name && pagos.Contrato.FechaInicio <= DateTime.Now && pagos.Contrato.FechaCierre >= DateTime.Now)
+                .ToListAsync();
+                if (pago == null)
+                {
+                    return NotFound("No se registraron pagos");
+                }
+
+                return Ok(pago);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         // GET: api/Pagoes
@@ -39,19 +58,19 @@ namespace ProyectoInmobiliaria.Api
         {
             try
             {
-                var pag = await contexto.Pagos
+                var pago = await contexto.Pagos
                 .Include(pagos => pagos.Contrato)
                 .Include(pagos => pagos.Contrato.Inmueble)
                 .Include(pagos => pagos.Contrato.Inmueble.Propietario)
                 .Include(pagos => pagos.Contrato.Inquilino)
                 .Where(pagos => pagos.Contrato.IdInm == id && pagos.Contrato.Inmueble.Propietario.Email == User.Identity.Name && pagos.Contrato.FechaInicio <= DateTime.Now && pagos.Contrato.FechaCierre >= DateTime.Now)
                 .ToListAsync();
-                if (pag == null)
+                if (pago == null)
                 {
-                    return NotFound("No hay pagos");
+                    return NotFound("No se registrarono pagos");
                 }
 
-                return Ok(pag);
+                return Ok(pago);
             }
             catch (Exception ex)
             {

@@ -36,8 +36,8 @@ namespace ProyectoInmobiliaria.Api
                     .Include(contrato => contrato.Inmueble)
                     .ThenInclude(inmueble => inmueble.Propietario)
                     .Include(contrato => contrato.Inquilino)
-                    .Where(contrato => contrato.Inmueble.Propietario.Email == User.Identity.Name)
-                    .Select(contrato => contrato.Inquilino)
+                    .Where(contrato => contrato.Inmueble.Propietario.Email == User.Identity.Name && contrato.FechaInicio <= DateTime.Now && contrato.FechaCierre >= DateTime.Now)
+                    .Select(contrato => new { contrato.Inmueble, contrato.Inquilino })
                     .ToListAsync();
 
                 if (inquilinos == null)

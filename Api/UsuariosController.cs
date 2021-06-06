@@ -58,17 +58,21 @@ namespace ProyectoInmobiliaria.Api
                 {
                     entidad.IdUs = res.IdUs;
                     entidad.Rol = res.Rol;
-                    if (entidad.Clave == null)
-                    {
+                    entidad.Nombre = res.Nombre;
+                    entidad.Apellido = res.Apellido;
+
+                   if (entidad.Clave == res.Clave || entidad.Clave == "") {
                         entidad.Clave = res.Clave;
+                
                     }
-                   else if (entidad.Clave != res.Clave) { 
-                   entidad.Clave = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                   password: entidad.Clave,
-                   salt: System.Text.Encoding.ASCII.GetBytes("Salt"),
-                   prf: KeyDerivationPrf.HMACSHA1,
-                   iterationCount: 1000,
-                   numBytesRequested: 256 / 8));
+                    else
+                    {
+                    entidad.Clave = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                    password: entidad.Clave,
+                    salt: System.Text.Encoding.ASCII.GetBytes("Salt"),
+                    prf: KeyDerivationPrf.HMACSHA1,
+                    iterationCount: 1000,
+                    numBytesRequested: 256 / 8));
                     }
                    
                     contexto.Entry(entidad).State = EntityState.Modified;

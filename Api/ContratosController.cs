@@ -40,13 +40,41 @@ namespace ProyectoInmobiliaria.Api
         {
             try
             {
-                var contrato = await contexto.Contratos
-                .Include(cont=> cont.Inmueble)
+
+                //var contrato = await contexto.Contratos
+                var usuario = User.Identity.Name;
+                var contrato = contexto.Contratos
+                .Include(cont => cont.Inmueble)
                 .Include(cont => cont.Inquilino)
                 .Include(cont => cont.Inmueble.Propietario)
-                .Where(cont => cont.IdInm == id && cont.FechaInicio <= DateTime.Now && cont.FechaCierre >= DateTime.Now && cont.Inmueble.Propietario.Email == User.Identity.Name)
-                .FirstOrDefaultAsync();
-                if (contrato == null || contrato.Inmueble.Propietario.Email != User.Identity.Name)
+                .Where(cont => cont.IdInm == id && cont.FechaInicio <= DateTime.Now && cont.FechaCierre >= DateTime.Now && cont.Inmueble.Propietario.Email == usuario);
+                //.FirstOrDefaultAsync();
+                if (contrato == null )
+                {
+                    return NotFound("No existen contratos vigentes");
+                }
+
+                return Ok(contrato);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("Vigente")]
+        public async Task<ActionResult<IEnumerable<Contrato>>> GetContratosVigente()
+        {
+            try
+            {
+                var usuario = User.Identity.Name;
+                var contrato = contexto.Contratos
+                .Include(cont => cont.Inmueble)
+                .Include(cont => cont.Inquilino)
+                .Include(cont => cont.Inmueble.Propietario)
+                .Where(cont => cont.FechaInicio <= DateTime.Now && cont.FechaCierre >= DateTime.Now && cont.Inmueble.Propietario.Email == usuario);
+                //.FirstOrDefaultAsync();
+                if (contrato == null)
                 {
                     return NotFound("No existen contratos vigentes");
                 }
