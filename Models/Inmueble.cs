@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,5 +20,10 @@ namespace ProyectoInmobiliaria.Models
         public int CantAmbientes { get; set; }
         public decimal Costo { get; set; }
         public bool Disponible { get; set; }
+        public string Foto { get; set; }
+
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
+
     }
 }

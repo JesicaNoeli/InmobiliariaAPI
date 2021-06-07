@@ -35,8 +35,6 @@ namespace ProyectoInmobiliaria.Api
                 var pago = await contexto.Pagos
                 .Include(pagos => pagos.Contrato)
                 .Include(pagos => pagos.Contrato.Inmueble)
-                .Include(pagos => pagos.Contrato.Inmueble.Propietario)
-                .Include(pagos => pagos.Contrato.Inquilino)
                 .Where(pagos =>  pagos.Contrato.Inmueble.Propietario.Email == User.Identity.Name && pagos.Contrato.FechaInicio <= DateTime.Now && pagos.Contrato.FechaCierre >= DateTime.Now)
                 .ToListAsync();
                 if (pago == null)
