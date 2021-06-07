@@ -58,7 +58,7 @@ using ProyectoInmobiliaria.Models;
             WriteLiteral("\n<h2>Filtrados</h2>\n\n<p>\n    ");
             EndContext();
             BeginContext(129, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5541bc3c40ac41b4ae747d832722fc16", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6766a86ea7d44b6a9d3796cae8bec319", async() => {
                 BeginContext(152, 10, true);
                 WriteLiteral("Create New");
                 EndContext();

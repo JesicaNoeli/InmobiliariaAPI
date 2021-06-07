@@ -21,9 +21,7 @@ namespace ProyectoInmobiliaria.Models
         public decimal Costo { get; set; }
         public bool Disponible { get; set; }
         public string Foto { get; set; }
-
-        [NotMapped]
-        public IFormFile ImageFile { get; set; }
+       
 
     }
 }

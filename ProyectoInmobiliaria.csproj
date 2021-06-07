@@ -10,9 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Imagenes\casa.jpg" />
-    <Content Include="Imagenes\dpto.jpg" />
-    <Content Include="Imagenes\local.jpg" />
+    <None Include="wwwroot\Uploads\casa.jpg" />
+    <None Include="wwwroot\Uploads\dpto.jpg" />
+    <None Include="wwwroot\Uploads\local.jpg" />
   </ItemGroup>
 
   <ItemGroup>

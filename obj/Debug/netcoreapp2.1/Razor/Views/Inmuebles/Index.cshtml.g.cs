@@ -68,7 +68,7 @@ Write(Html.ActionLink("Filtrar Libres Por Fecha", "Busqueda", "Inmuebles"));
             WriteLiteral("</h4>\n\n<p>\n    ");
             EndContext();
             BeginContext(301, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "02d15986e9da4cbba98f2d6cfa9d275b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "699b0d23726040079b7153b7512aa736", async() => {
                 BeginContext(324, 10, true);
                 WriteLiteral("Create New");
                 EndContext();

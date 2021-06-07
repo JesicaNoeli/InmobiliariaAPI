@@ -58,7 +58,7 @@ using ProyectoInmobiliaria.Models;
             WriteLiteral("\n<h2>Ver</h2>\n\n<p>\n    ");
             EndContext();
             BeginContext(117, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12b50dc5636b47d78e4fb65f0466bfd7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30408f24de684e8eaa0e1f7cfe3c260b", async() => {
                 BeginContext(167, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
